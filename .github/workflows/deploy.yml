@@ -27,13 +27,15 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           
       - name: Install dependencies
-        run: npm install
+        run: npm install --no-package-lock
         
       - name: Build project
         run: npm run build
+        env:
+          CI: false
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
